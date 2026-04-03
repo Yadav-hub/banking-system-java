@@ -69,16 +69,4 @@ public class Bank {
     }
 }
 
-/*
- * 
- * Bank class
- * 
- * Use a HashMap<String, BankAccount> to store accounts — key is account number
- * Methods —
- * 
- * createAccount(String accNo, String name, double initialDeposit)
- * getAccount(String accNo) — return account, throw exception if not found
- * transferFunds(String fromAcc, String toAcc, double amount) — withdraw from
- * one, deposit to another
- * 
- */
+

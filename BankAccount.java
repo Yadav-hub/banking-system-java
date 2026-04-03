@@ -1,14 +1,4 @@
-/*
-BankAccount class
 
-Fields — accountNumber, accountHolderName, balance
-Methods —
-
-deposit(double amount) — add money, throw exception if amount ≤ 0
-withdraw(double amount) — deduct money, throw exception if insufficient balance or amount ≤ 0
-getBalance() — return current balance
-printStatement() — print account details nicely
-*/
 
 public class BankAccount{
 

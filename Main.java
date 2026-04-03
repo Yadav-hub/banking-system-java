@@ -64,12 +64,4 @@ public class Main {
 
 }
 
-/*
- * Main class
- * 
- * Create 3 accounts
- * Do deposits, withdrawals
- * Transfer between accounts
- * Deliberately trigger exceptions and handle them with proper messages
- * 
- */
+
