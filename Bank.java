@@ -5,8 +5,9 @@ import java.util.HashSet;
 public class Bank {
 
     HashMap<String, BankAccount> account = new HashMap<>();
-
     HashSet<String> accountNumber = new HashSet<>();
+
+    
 
     public void createAccount(String accNo, String name, double intialDeposit) throws InvalidAmountException {
 
@@ -31,7 +32,7 @@ public class Bank {
             System.out.println("----------------------");
             // System.out.println(bank.printStatement());
         }
-        System.out.println("->->->->->->->->");
+        
     }
 
     public BankAccount getAccount(String accNo) throws Exception {
@@ -44,6 +45,8 @@ public class Bank {
 
         return bankUser;
     }
+
+    
 
     public void transferFunds(String fromAcc, String toAcc, double Amount)
             throws InvalidAmountException, InsufficientFundsException {
@@ -68,5 +71,3 @@ public class Bank {
 
     }
 }
-
-

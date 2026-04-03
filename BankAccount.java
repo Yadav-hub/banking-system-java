@@ -1,4 +1,5 @@
-
+import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class BankAccount{
 
@@ -7,6 +8,8 @@ public class BankAccount{
     private String accountHolderName;
 
     private double balance;
+
+    LinkedList<String> transaction = new LinkedList<>();
 
     BankAccount(String accountNumber, String accountHolderName, double balance)
     {
@@ -43,6 +46,7 @@ public class BankAccount{
         }
         
         this.balance += amount;
+        transaction.add("Amount "+amount+" deposited on "+LocalDate.now());
 
     }
 
@@ -62,10 +66,18 @@ public class BankAccount{
         else
         {
             this.balance -= amount;
+            transaction.add("Amount "+amount+" withdrawn on "+LocalDate.now());
             
         }
         
 
+    }
+
+    public void printTransaction()
+    {
+        for (String transactionString : transaction) {
+            System.out.println(transactionString);
+        }
     }
 
     public void printStatement()
@@ -76,6 +88,8 @@ public class BankAccount{
         System.out.println("Account No : "+this.accountNumber);
         System.out.println("balance : "+this.balance);
         System.out.println("----------------------");
+
+        
         
 
     }
