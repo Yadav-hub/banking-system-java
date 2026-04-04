@@ -35,6 +35,7 @@ public class Bank {
         
     }
 
+    
     public BankAccount getAccount(String accNo) throws Exception {
 
         BankAccount bankUser = account.get(accNo);
@@ -45,6 +46,23 @@ public class Bank {
 
         return bankUser;
     }
+
+    public void getTransactionByAccNo(String accNo)throws Exception
+    {
+        BankAccount accounts = getAccount(accNo);
+
+        if(accounts == null)
+        {
+            throw new Exception("No account found");
+        }
+        else
+        {
+            System.out.println("Transaction History of "+accNo);
+            accounts.printTransaction();
+        }
+        
+    }
+
 
     
 

@@ -58,7 +58,7 @@ public class Main {
         }
         
         try {
-            obj.getAccount("2721370").printTransaction();
+            obj.getTransactionByAccNo("2721370");;
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println(e.getMessage());
