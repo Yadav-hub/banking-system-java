@@ -7,8 +7,6 @@ public class Bank {
     HashMap<String, BankAccount> account = new HashMap<>();
     HashSet<String> accountNumber = new HashSet<>();
 
-    
-
     public void createAccount(String accNo, String name, double intialDeposit) throws InvalidAmountException {
 
         if (accountNumber.contains(accNo)) {
@@ -32,10 +30,9 @@ public class Bank {
             System.out.println("----------------------");
             // System.out.println(bank.printStatement());
         }
-        
+
     }
 
-    
     public BankAccount getAccount(String accNo) throws Exception {
 
         BankAccount bankUser = account.get(accNo);
@@ -47,24 +44,12 @@ public class Bank {
         return bankUser;
     }
 
-    public void getTransactionByAccNo(String accNo)throws Exception
-    {
-        BankAccount accounts = getAccount(accNo);
+    public void getTransactionByAccNo(String accNo) throws Exception {
+        BankAccount accountData = getAccount(accNo);
+        System.out.println("Transaction History of " + accNo);
+        accountData.printTransaction();
 
-        if(accounts == null)
-        {
-            throw new Exception("No account found");
-        }
-        else
-        {
-            System.out.println("Transaction History of "+accNo);
-            accounts.printTransaction();
-        }
-        
     }
-
-
-    
 
     public void transferFunds(String fromAcc, String toAcc, double Amount)
             throws InvalidAmountException, InsufficientFundsException {
