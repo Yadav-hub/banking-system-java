@@ -1,3 +1,6 @@
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,9 +9,35 @@ public class Bank {
 
     HashMap<String, BankAccount> account = new HashMap<>();
     HashSet<String> accountNumber = new HashSet<>();
+    private Connection con ;
 
-    public void createAccount(String accNo, String name, double intialDeposit) throws InvalidAmountException {
 
+    Bank() throws Exception
+    {
+        con = DatabaseConnection.getConnection();
+        Statement stmt = con.createStatement();
+
+        ResultSet rs = stmt.executeQuery("SELECT * FROM accounts");
+
+        while(rs.next())
+        {
+            String accNo = rs.getString("account_number");
+            String name = rs.getString("account_holder_name");
+            double balance = rs.getDouble("balance");
+
+            BankAccount bankAccunt = new BankAccount(accNo, name, balance);
+            account.put(accNo,bankAccunt);
+            accountNumber.add(accNo);
+        }
+    }
+    
+    
+
+    public void createAccount(String accNo, String name, double intialDeposit) throws Exception{
+
+        
+
+        
         if (accountNumber.contains(accNo)) {
             System.out.println("Already exists account number " + accNo);
             System.out.println("Can't Add duplicate account number");
@@ -16,6 +45,10 @@ public class Bank {
             BankAccount bankAccount = new BankAccount(accNo, name, intialDeposit);
             account.put(accNo, bankAccount);
             accountNumber.add(accNo);
+            con = DatabaseConnection.getConnection();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO accounts VALUES('" + accNo + "','" + name + "'," + intialDeposit + ")");
+            con.close();
         }
 
     }
