@@ -1,5 +1,3 @@
-import java.sql.Connection;
-
 public class Main {
 
     public static void main(String args[]) {
@@ -57,18 +55,18 @@ public class Main {
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 System.out.println(e.getMessage());
-                ;
+                
             }
 
             try {
 
                 obj.getTransactionByAccNo("2721370");
-                ;
+                
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 System.out.println(e.getMessage());
             }
-            ;
+            
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
